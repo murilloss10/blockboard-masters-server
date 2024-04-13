@@ -20,8 +20,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Passport::enablePasswordGrant();
+        
         Passport::tokensCan([
-            'admin' => 'Admin access',
+            'admin'     => 'Admin access',
+            'player'    => 'Player access',
         ]);
 
         Passport::setDefaultScope([
